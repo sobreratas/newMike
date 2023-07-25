@@ -18,6 +18,40 @@ cards.forEach(card => {
     observer.observe(card)
 })
 
+//left card observer code
+const leftCards = document.querySelectorAll(".left-card");
+
+const leftObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+        if(entry.isIntersecting) observer.unobserve(entry.target)
+    })
+},
+{
+    threshold: .5,
+})
+
+leftCards.forEach(leftCard => {
+    observer.observe(leftCard)
+})
+
+//right card observer code
+const rightCards = document.querySelectorAll(".right-card");
+
+const rightObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+        if(entry.isIntersecting) observer.unobserve(entry.target)
+    })
+},
+{
+    threshold: .5,
+})
+
+rightCards.forEach(rightCard => {
+    observer.observe(rightCard)
+})
+
 //hamburger menu code
 
 const hamburger = document.querySelector(".hamburger");
@@ -37,6 +71,6 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
 
 const year = document.querySelector('.year');
 const currentYear = new Date().getFullYear();
-console.log(currentYear)
+
 
 year.innerHTML = currentYear;

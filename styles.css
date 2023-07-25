@@ -130,10 +130,11 @@ a {
         top: 70px;
         gap: 0;
         flex-direction: column;
-        background-color: black;
+        background-color:rgb(212, 241, 253);
         width: 100%;
         text-align: center;
         transition: 0.3s;
+        opacity: .95; 
     }
 
     .nav-item {
@@ -145,14 +146,10 @@ a {
     }
 
     .top-section, .translation-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
         flex-direction: column-reverse;
-        width: 60%;
-        gap: 35px;
     }
+
+
 }
 
 /*** CARD OBSERVER STYLES ***/
@@ -168,11 +165,31 @@ a {
     opacity: 1;
 }
 
+.left-card {
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: 150ms;
+}
+
+.right-card {
+    transform: translateX(100px);
+    opacity: 0;
+    transition: 150ms;
+}
+
+.left-card.show, .right-card.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+
 /*** TOP SECTION ***/
 
 .top-section,
 .about-section,
-.translation-section {
+.translation-section,
+.media-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,7 +200,8 @@ a {
 
 .top-section-left,
 .about-section-left,
-.translation-section-left {
+.translation-section-left,
+.media-section-left {
     width: 350px;
     padding: 10px;
 
@@ -191,7 +209,8 @@ a {
 
 .top-section-right,
 .about-section-right,
-.translation-section-right {
+.translation-section-right,
+.media-section-right {
     width: 350px;
     padding: 10px;
 
@@ -450,10 +469,10 @@ cursor: pointer;
     color: #fff;
     font-size: 1rem;
     border-radius: 10px;
-    margin: 15px 0px;
+    margin: 15px auto;
+    display: block;
     width: 150px;
-    position: relative;
-    left: 44.7%;
+    
 }
 
 
@@ -503,4 +522,55 @@ form {
     padding-bottom: 20px;
     color: #959595;
     font-size: 12px;
+}
+
+/***SLIDER ***/
+.container {
+    padding: 2rem;
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background-color:#fff;
+    opacity: .75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
 }
