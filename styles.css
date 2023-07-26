@@ -38,7 +38,8 @@ a {
 }
 
 .navbar {
-    background-color: rgb(212, 241, 253);
+    
+    background-color: rgb(212, 241, 253) ;
     position: fixed;
     top: 0;
     left: 0;
@@ -275,7 +276,7 @@ a {
 .slider-wrapper {
     position: relative;
     max-width: 48rem;
-    margin: 0 auto;
+    margin: 0 auto 35px auto;
 }
 
 .slider {
